@@ -2,15 +2,24 @@ import React from 'react'
 import { PiTrashFill } from "react-icons/pi";
 import ActualizarItem from './ActualizarItem';
 
-const ListaItems = () => {
+const ListaItems = ({
+  nota, 
+  handleUpdateNota, 
+  handleDeleteNota,
+  handleCompleteNota,
+}) => {
   return (
     <div>
       <li>
-            <span>
+            <span
+              onClick={() => handleCompleteNota(nota.id)}
+            >
                 <label htmlFor='' className='container-done'></label>
             </span>
-            <ActualizarItem/>
-            <button className='btn-delete'><PiTrashFill /></button>
+            <ActualizarItem nota={nota} handleUpdateNota={handleUpdateNota} />
+            <button className='btn-delete' onClick={() => handleDeleteNota(nota.id)}>
+              <PiTrashFill />
+            </button>
         </li>
        
     </div>

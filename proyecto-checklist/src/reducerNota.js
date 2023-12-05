@@ -5,29 +5,29 @@ export const reducerNota = (initialState, action) => {
             return [...initialState, action.payload]
 
         case 'Delete Nota':
-            return initialState.filter(todo => todo.id !== action.payload)
+            return initialState.filter(nota => nota.id !== action.payload)
 
         case 'Complete Nota':
-            return initialState.map(todo => {
-                if (todo.id === action.payload) {
+            return initialState.map(nota => {
+                if (nota.id === action.payload) {
                     return {
-                        ...todo,
-                        done: !todo.done
+                        ...nota,
+                        done: !nota.done
                     }
                 }
-                return todo;
+                return nota;
             });
 
 
         case 'Update Nota':
-            return initialState.map(todo => {
-                if (todo.id === action.payload.id) {
+            return initialState.map(nota => {
+                if (nota.id === action.payload.id) {
                     return {
-                        ...todo,
+                        ...nota,
                         description: action.payload.description,
                     }
                 }
-                return todo;
+                return nota;
             });
 
         default:

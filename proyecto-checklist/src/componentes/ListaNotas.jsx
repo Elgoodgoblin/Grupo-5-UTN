@@ -1,10 +1,24 @@
 import React from 'react'
 import ListaItems from './ListaItems'
 
-export const ListaNotas = () => {
+export const ListaNotas = ({
+  notas, 
+  handleUpdateNota, 
+  handleDeleteNota,
+  handleCompleteNota,
+}) => {
   return (
     <ul>
-        <ListaItems/>
+      {notas.map(nota => (
+      <ListaItems 
+        key={nota.id}
+        nota={nota}
+        handleUpdateNota={handleUpdateNota}
+        handleDeleteNota={handleDeleteNota}
+        handleCompleteNota={handleCompleteNota}
+        />
+        ))}
+        
     </ul>
   )
 }
