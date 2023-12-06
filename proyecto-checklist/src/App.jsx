@@ -1,46 +1,47 @@
-import React from 'react'
+import { useState } from 'react';
 import './App.css';
-import {AgregarNota} from './componentes/AgregarNota';//Esta se llama en el video TodoAdd
-import { ListaNotas } from './componentes/ListaNotas';//Este se llama TodoList
-import { useFuncionalidadNota } from './customHooks/funcionalidadNota';
+import { TodoAdd } from './components/TodoAdd';
+import { TodoList } from './components/TodoList';
+import { useTodo } from './hooks/useTodo';
 
 function App() {
-  const { 
-    notas,
-    notasCount,
-    pendingNotasCount,
-    handleNewNota,
-    handleDeleteNota,
-    handleCompleteNota,
-    handleUpdateNota 
-  } = useFuncionalidadNota();
-  
-  return (
-    <>
+	const {
+		todos,
+		todosCount,
+		pendingTodosCount,
+		handleNewTodo,
+		handleDeleteTodo,
+		handleCompleteTodo,
+		handleUpdateTodo,
+	} = useTodo();
 
-        <div className='card-no-ta'>
-            <h1>Lista de Tareas</h1>
-            <div className="counter-notas">
-                <h3>N° Tareas: {notasCount}</h3>
-                <h3>Pendientes: {pendingNotasCount}</h3>
-            </div>
-            <div className="add-nota">
-                <h3>Agregar Tarea</h3>
-                <AgregarNota handleNewNota={handleNewNota}/>
-            </div>
-            <ListaNotas 
-            notas={notas}
-            handleUpdateNota={handleUpdateNota}
-            handleDeleteNota={handleDeleteNota}
-            handleCompleteNota={handleCompleteNota}
-            />
+	return (
+		<>
+			<div className='card-to-do'>
+				<h1>Lista de tareas</h1>
+				<div className='counter-todos'>
+					<h3>
+						N° Tareas: <span>{todosCount}</span>
+					</h3>
+					<h3>
+						Pendientes: <span>{pendingTodosCount}</span>
+					</h3>
+				</div>
 
-        </div>
+				<div className='add-todo'>
+					<h3>Agregar Tarea</h3>
+					<TodoAdd handleNewTodo={handleNewTodo} />
+				</div>
 
-
-    </>
-
-  );
+				<TodoList
+					todos={todos}
+					handleUpdateTodo={handleUpdateTodo}
+					handleDeleteTodo={handleDeleteTodo}
+					handleCompleteTodo={handleCompleteTodo}
+				/>
+			</div>
+		</>
+	);
 }
 
 export default App;
