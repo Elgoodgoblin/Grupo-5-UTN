@@ -6,18 +6,22 @@
 
 :root {
 	--rojo: #ba181b;
-	--azul: #00b4d8;
-	--azul-hover: #48cae4;
+	--azul: #8a62f9;
+	--azul-hover: #704dcf;
 	--rojo-hover: #e5383b;
-	--verde: #09a129;
+	--verde: #7efba7;
 }
 
 body {
-	font-family: Poppins;
+	font-family: 'Roboto';
 	max-width: 1200px;
+	height: 100vh;
 	margin: 40px auto;
 	display: flex;
 	justify-content: center;
+	background-color: #4158D0;
+	background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+
 }
 
 .card-to-do {
@@ -29,6 +33,7 @@ body {
 
 h1 {
 	text-align: center;
+	color: white;
 }
 
 .counter-todos {
@@ -39,10 +44,11 @@ h1 {
 
 .counter-todos h3 {
 	font-weight: 500;
+	color: white;
 }
 
 .counter-todos span {
-	color: #f29559;
+	color: #393D82;
 	font-weight: 700;
 	font-size: 24px;
 	margin-left: 10px;
@@ -81,10 +87,16 @@ ul li form {
 	font-weight: 500;
 	font-family: inherit;
 	font-size: 18px;
-	color: #555;
+	color: white;
 	width: 100%;
-	/* background-color: #000; */
+	background-color:white; 
 	outline: none;
+	border: 2px solid #8a62f9;
+	border-radius: 12px;
+	padding-left: 10px;
+	cursor: default;
+
+
 }
 
 .container-done {
@@ -149,6 +161,7 @@ form {
 	text-align: center;
 	margin-bottom: 40px;
 	font-size: 24px;
+	color:white;
 }
 
 .input-add {
