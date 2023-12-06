@@ -14,7 +14,9 @@ const ListaItems = ({
             <span
               onClick={() => handleCompleteNota(nota.id)}
             >
-                <label htmlFor='' className='container-done'></label>
+                <label 
+                className={`container-done ${nota.done ? 'active' : ''}`}
+                ></label>
             </span>
             <ActualizarItem nota={nota} handleUpdateNota={handleUpdateNota} />
             <button className='btn-delete' onClick={() => handleDeleteNota(nota.id)}>
